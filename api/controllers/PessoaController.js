@@ -12,7 +12,7 @@ class PessoaController{
     static async pegaUmaPessoa (req, res){
         const { id } = req.params;
         try{
-            const umaPessoa = await database.findOne( {
+            const umaPessoa = await database.Pessoas.findOne( {
                 where: {
                     id: Number(id)
                 }
