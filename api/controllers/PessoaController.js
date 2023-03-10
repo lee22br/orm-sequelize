@@ -73,6 +73,17 @@ class PessoaController{
         }
     }
 
+    static async criaMatricula (req, res){
+        const { estudanteId } = req.params;
+        const novaMatricula = {... req.body, estudante_id: Number(estudanteId)};
+        try{
+            const novaMatriculaCriada = await database.create(novaMatricula);
+            return res.status(200).json(novaMatriculaCriada);
+        }catch(error){
+            return res.status(500).json(error.message);
+        }
+    }
+
 }
 
 module.exports = PessoaController
