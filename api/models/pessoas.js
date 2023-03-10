@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Pessoas',
-  },{paranoid: true});
+  });
   return Pessoas;
 };
