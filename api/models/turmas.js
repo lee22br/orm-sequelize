@@ -20,6 +20,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Turmas',
-  });
+  },{paranoid: true});
   return Turmas;
 };
