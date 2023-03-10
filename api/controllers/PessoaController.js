@@ -102,6 +102,16 @@ class PessoaController{
         }
     }
 
+    static async deletaMatricula (req, res){
+        const { estudanteId, matriculaId } = req.params;
+        try {
+            await database.Matriculas.destroy({where: { id: Number(matriculaId)}});
+            return res.status(200).json({mensagem: `matrícula Id: ${matriculaId} deletada.`});
+        } catch (error) {
+            
+        }
+    }
+
 }
 
 module.exports = PessoaController
