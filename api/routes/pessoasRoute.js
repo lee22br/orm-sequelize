@@ -3,6 +3,7 @@ const PessoaController = require ('../controllers/PessoaController');
 
 const router = Router();
 router.get('/pessoas', PessoaController.pegaTodasAsPessoaAtivas);
+router.get('/pessoas/todas', PessoaController.pegaTodasAsPessoa);
 router.get('/pessoas/:id', PessoaController.pegaUmaPessoa);
 router.post('/pessoas', PessoaController.criaPessoa);
 router.put('/pessoas/:id', PessoaController.atualizaPessoa);
