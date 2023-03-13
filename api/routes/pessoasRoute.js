@@ -15,5 +15,6 @@ router.put('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.atua
 router.delete('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.deletaMatricula);
 router.post('/pessoas/:id', PessoaController.restauraPessoa);
 router.post('/pessoas/:estudanteId/matricula/:matriculaId/restaura', PessoaController.restauraMatricula);
+router.get('/pessoas/matricula/:turmaId/confirmadas', PessoaController.pegaMatriculasPorTurma);
 
 module.exports = router;

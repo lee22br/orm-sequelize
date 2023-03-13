@@ -158,7 +158,20 @@ class PessoaController{
             res.status(500).json(error.message);
         }
     }
-
+    static async pegaMatriculasPorTurma (req, res){
+        const { turmaId } = req.params;
+        try {
+            const todasMatriculas = await database.Matriculas.findAndCountAll({
+                where: {
+                    turma_id: Number(turmaId),
+                    status: 'confirmado'
+                }
+             });
+            return res.status(200).json(todasMatriculas);
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
      
 }
 
