@@ -10,7 +10,7 @@ class Services {
     }
 
     async pegaUmRegistro(id){
-        return database[this.nomeDoModelo].findByPk(id);
+        return database[this.nomeDoModelo].findOne({where:{id: id}});
     }
 
     async criaRegistro(dados){
