@@ -16,7 +16,7 @@ class PessoasServices extends Services{
     }
 
     async cancelaPessoaEMatriculas(estudanteId){
-        return database.sequelize.transacation(async transacao => {
+        return database.sequelize.transaction(async transacao => {
             await super.atualizaRegistro({ativo: false},estudanteId, { transacation: transacao})
             await this.matriculas.atualizaRegistros({status: 'cancelado'}, {estudante_id: estudanteId}, {transacation: transacao})
         });
