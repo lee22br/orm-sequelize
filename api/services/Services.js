@@ -9,8 +9,8 @@ class Services {
         return database[this.nomeDoModelo].findAll();
     }
 
-    async pegaUmRegistro(id){
-        return database[this.nomeDoModelo].findOne({where:{id: id}});
+    async pegaUmRegistro(where = {}){
+        return database[this.nomeDoModelo].findOne({ where: { ...where } });
     }
 
     async criaRegistro(dados){
