@@ -1,21 +1,21 @@
 // const database = require('../models');
 // const Sequelize = require ('sequelize');
 
-const Services = require('../services/Services');
-const pessoasServices = new Services('Pessoas');
+const {PessoasServices} = require('../services');
+const pessoasServices = new PessoasServices('Pessoas');
 
 class PessoaController{
-    static async pegaTodasAsPessoaAtivas (req, res){
+    static async pegaTodasAsPessoasAtivas (req, res){
         try{
-            const todasAsPessoas = await pessoasServices.pegaTodosOsRegistros();
+            const todasAsPessoas = await pessoasServices.pegaRegistrosAtivos();
             return res.status(200).json(todasAsPessoas);
         }catch(error){
             return res.status(500).json(error.message);
         }
     }
-    static async pegaTodasAsPessoa (req, res){
+    static async pegaTodasAsPessoas (req, res){
         try{
-            const todasAsPessoas = await database.Pessoas.scope('todos').findAll();
+            const todasAsPessoas = await pessoasServices.pegaTodosOsRegistros();
             return res.status(200).json(todasAsPessoas);
         }catch(error){
             return res.status(500).json(error.message);
